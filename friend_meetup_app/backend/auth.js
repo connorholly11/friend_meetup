@@ -1,8 +1,16 @@
-const { createUser, getUser } = require('./database');
-const bcrypt = require('bcrypt');
+import { createUser, getUser } from './database.js';
+import bcrypt from 'bcrypt';
 
 async function signup(username, password) {
   try {
+    // Check if username or password is empty
+    if (!username || username.trim() === '') {
+      return { success: false, message: 'Username cannot be empty' };
+    }
+    if (!password || password.trim() === '') {
+      return { success: false, message: 'Password cannot be empty' };
+    }
+
     // Check if the username already exists
     const existingUser = await getUser(username);
     if (existingUser) {
@@ -40,7 +48,7 @@ async function login(username, password) {
   }
 }
 
-module.exports = {
+export {
   signup,
   login
 };
