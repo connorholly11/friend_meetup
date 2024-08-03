@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@babel/plugin-syntax-jsx": "^7.24.7",
+    "@babel/preset-react": "^7.24.7",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
